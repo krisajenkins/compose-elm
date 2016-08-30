@@ -1,11 +1,14 @@
 module Rest exposing (..)
 
 import Http
+import Json.Decode exposing (..)
 import Types exposing (..)
 
+decodeStory : Decoder Story
+decodeStory =
 
 decodeNews : Decoder News
-
+decodeNews = list decodeStory
 
 loadNews : Cmd Msg
 loadNews =
