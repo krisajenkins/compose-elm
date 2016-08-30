@@ -1,11 +1,12 @@
 module State exposing (..)
 
+import Rest
 import Types exposing (..)
 
 
 init : ( Model, Cmd Msg )
 init =
-    ( {}, Cmd.none )
+    ( {}, Rest.loadNews )
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
