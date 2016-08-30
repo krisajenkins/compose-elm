@@ -1,5 +1,7 @@
 module Types exposing (..)
 
+import Http
+
 
 type alias Story =
     { title : String
@@ -15,4 +17,4 @@ type alias Model =
 
 
 type Msg
-    = Noop
+    = LoadedNews (Result Http.Error News)

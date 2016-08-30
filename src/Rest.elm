@@ -2,15 +2,30 @@ module Rest exposing (..)
 
 import Http
 import Json.Decode exposing (..)
+import Task
 import Types exposing (..)
+
 
 decodeStory : Decoder Story
 decodeStory =
+    object1 Story
+        ("title" := string)
+
 
 decodeNews : Decoder News
-decodeNews = list decodeStory
+decodeNews =
+    list decodeStory
+
 
 loadNews : Cmd Msg
 loadNews =
-    Http.get decodeNews
-        "https://hn.algolia.com/api/v1/search_by_date?tags=story&hitsPerPage=50"
+    Cmd.map LoadedNews
+        (Task.perform Err
+            Ok
+            (Http.get decodeNews url)
+        )
+
+
+url : String
+url =
+    "https://hn.algolia.com/api/v1/search_by_date?tags=story&hitsPerPage=50"

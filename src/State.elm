@@ -12,5 +12,5 @@ init =
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        Noop ->
+        LoadedNews _ ->
             ( model, Cmd.none )
