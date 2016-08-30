@@ -13,7 +13,7 @@ type alias News =
 
 
 type alias Model =
-    {}
+    { news : Result Http.Error News }
 
 
 type Msg

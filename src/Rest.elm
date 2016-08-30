@@ -14,7 +14,7 @@ decodeStory =
 
 decodeNews : Decoder News
 decodeNews =
-    list decodeStory
+    "hits" := list decodeStory
 
 
 loadNews : Cmd Msg
