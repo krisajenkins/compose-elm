@@ -1,6 +1,7 @@
 module View exposing (..)
 
 import Html exposing (..)
+import Html.Attributes exposing (..)
 import Types exposing (..)
 
 
@@ -18,4 +19,13 @@ root model =
 
 storyView : Story -> Html Msg
 storyView story =
-    h3 [] [ text story.title ]
+    case story.url of
+        Nothing ->
+            h3 [] [ text story.title ]
+
+        Just url ->
+            a
+                [ href url
+                , target "blank"
+                ]
+                [ h3 [] [ text story.title ] ]

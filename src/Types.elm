@@ -5,6 +5,7 @@ import Http
 
 type alias Story =
     { title : String
+    , url : Maybe String
     }
 
 

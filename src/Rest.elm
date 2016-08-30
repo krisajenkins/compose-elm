@@ -8,8 +8,9 @@ import Types exposing (..)
 
 decodeStory : Decoder Story
 decodeStory =
-    object1 Story
+    object2 Story
         ("title" := string)
+        ("url" := maybe string)
 
 
 decodeNews : Decoder News
